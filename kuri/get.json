@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "kuriGroups": [
+    {
+      "id": "1",
+      "name": "Monthly Savings Group",
+      "startDate": "2024-01-01",
+      "members": 20
+    },
+    {
+      "id": "2",
+      "name": "Holiday Fund Kuri",
+      "startDate": "2024-02-15",
+      "members": 15
+    }
+  ]
+}
