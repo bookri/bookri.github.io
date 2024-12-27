@@ -3,64 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bookri - Simplifying traditional Kuri systems with a modern app">
-    <title>Bookri - Simplifying Kuri Systems</title>
+    <title>Bookri - Simplifying Rotating Savings</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            line-height: 1.6;
         }
         header {
-            background-color: #374151;
+            background: #2c3e50;
             color: #fff;
-            padding: 1rem 0;
+            padding: 10px 20px;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        header img {
+            width: 50px;
+            vertical-align: middle;
         }
-        header p {
-            margin: 0.5rem 0 0;
+        header h1 {
+            display: inline;
+            margin-left: 10px;
+            font-size: 24px;
         }
         section {
-            padding: 2rem;
-            max-width: 800px;
-            margin: auto;
+            padding: 20px;
         }
-        section h2 {
-            color: #374151;
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .hero {
+            text-align: center;
+            background: #ecf0f1;
+            padding: 50px 20px;
         }
-        section p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
+        .hero img {
+            width: 80%;
+            max-width: 400px;
+            margin: 20px 0;
         }
         .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
         .feature {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1rem;
-            flex: 1 1 calc(33.333% - 1rem);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            padding: 15px;
+            text-align: center;
+            background: #fff;
         }
-        .feature h3 {
-            margin-top: 0;
-            color: #374151;
+        .feature img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
         }
         .cta {
             text-align: center;
-            margin-top: 2rem;
+            margin: 30px 0;
         }
         .cta a {
             display: inline-block;
@@ -75,43 +73,51 @@
             background-color: #1d4ed8;
         }
         footer {
-            text-align: center;
-            background-color: #374151;
+            background: #34495e;
             color: #fff;
-            padding: 1rem 0;
-            margin-top: 2rem;
+            text-align: center;
+            padding: 10px 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Bookri</h1>
-        <p>Simplifying Traditional Kuri Systems with Technology</p>
-    </header>
-    <section>
-        <h2>About Bookri</h2>
-        <p>Bookri is a revolutionary app designed to modernize the traditional Kuri system. With Bookri, users can create or join Kuri groups, manage contributions, and track progress seamlessly, all from the comfort of their devices.</p>
-        <h2>Key Features</h2>
-        <div class="features">
-            <div class="feature">
-                <h3>Easy Group Creation</h3>
-                <p>Create Kuri groups with ease and invite members to join instantly.</p>
-            </div>
-            <div class="feature">
-                <h3>Transparent Tracking</h3>
-                <p>Track contributions, draws, and progress with full transparency.</p>
-            </div>
-            <div class="feature">
-                <h3>Secure Transactions</h3>
-                <p>Ensure safe and secure financial management for all members.</p>
-            </div>
+<header>
+    <img src="images/logo.png?text=Bookri+Logo" alt="Bookri Logo">
+    <h1>Bookri</h1>
+</header>
+<section class="hero">
+    <h2>Simplifying Rotating Savings</h2>
+    <p>Bookri helps you manage traditional savings groups digitally. Create, join, and manage your Kuri with ease.</p>
+    <img src="images/hero.png?text=Hero+Image" alt="Bookri App Mockup">
+</section>
+<section>
+    <h2>Features</h2>
+    <div class="features">
+        <div class="feature">
+            <img src="images/create-group.png?text=Create+Group" alt="Create Group">
+            <h3>Create Kuri Groups</h3>
+            <p>Set up your savings group in minutes and invite members seamlessly.</p>
         </div>
-        <div class="cta">
-            <a href="#">Get Started with Bookri</a>
+        <div class="feature">
+            <img src="images/manage-payments.png?text=Manage+Payments" alt="Manage Payments">
+            <h3>Track Payments</h3>
+            <p>Easily keep track of monthly contributions and payouts.</p>
         </div>
-    </section>
-    <footer>
-        <p>&copy; 2024 Bookri. All rights reserved.</p>
-    </footer>
+        <div class="feature">
+            <img src="images/notifications.png?text=Notifications" alt="Notifications">
+            <h3>Stay Notified</h3>
+            <p>Receive reminders for due payments and group updates.</p>
+        </div>
+    </div>
+</section>
+<section class="cta">
+    <h2>Ready to Start?</h2>
+    <p>Download Bookri and take your savings to the next level.</p>
+
+    <a href="#" onclick="window.location.href='https://play.google.com/store'">Get Started with Bookri</a>
+</section>
+<footer>
+    <p>&copy; 2024 Bookri. All rights reserved.</p>
+</footer>
 </body>
 </html>
