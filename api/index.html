@@ -81,7 +81,7 @@
 <p>Welcome to the API documentation for the Bookri backend application. Below are the details for each endpoint.</p>
 
 <div class="endpoint">
-  <h2><span class="method">POST</span> /auth/register</h2>
+  <h2><span class="method">POST</span> api/auth/register</h2>
   <p><strong>Description:</strong> Register a new user.</p>
   <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/auth/register/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/auth/register/post.json</a></p>
   <p><strong>Authentication:</strong> <span class="no-auth">No</span></p>
@@ -98,7 +98,7 @@
 </div>
 
 <div class="endpoint">
-  <h2><span class="method">POST</span> /auth/login</h2>
+  <h2><span class="method">POST</span> api/auth/login</h2>
   <p><strong>Description:</strong> Login and get a JWT token.</p>
   <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/auth/login/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/auth/login/post.json</a></p>
   <p><strong>Authentication:</strong> <span class="no-auth">No</span></p>
@@ -114,7 +114,64 @@
 </div>
 
 <div class="endpoint">
-  <h2><span class="method">GET</span> /kuri</h2>
+  <h2><span class="method">POST</span> api/overview</h2>
+  <p><strong>Description:</strong> Overview/Home screen of a user.</p>
+  <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/overview/get.json" class="mock-url" target="_blank">https://bookri.github.io/api/overview/get.json</a></p>
+  <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
+  <p><strong>Response:</strong></p>
+  <pre><code>{
+  "user": {
+    "name": "Hisham",
+    "profilePicture": "https://avatars.githubusercontent.com/u/15229259"
+  },
+  "overview": {
+    "today": "2025-01-25",
+    "totalSavings": 250000.0,
+    "totalCollected": 250000.0,
+    "totalSpent": 5000.0,
+    "noOfKurisJoined": 4,
+    "noOfKurisOwned": 2,
+    "successfulKurisCount": 2
+  },
+  "filters": [
+    "Monthly",
+    "Due Today",
+    "Paid",
+    "Overdue"
+  ],
+  "transactions": [
+    {
+      "type": "out",
+      "name": "Monthly Contribution - Group 1",
+      "amount": 2000.0,
+      "status": "Overdue",
+      "daysOverdue": 3
+    },
+    {
+      "type": "in",
+      "name": "Monthly Contribution - Group 2",
+      "amount": 1500.0,
+      "status": "Paid"
+    },
+    {
+      "type": "in",
+      "name": "Monthly Contribution - Group 3",
+      "amount": 1500.0,
+      "status": "Due Today"
+    },
+    {
+      "type": "out",
+      "name": "Monthly Contribution - Group 3",
+      "amount": 1500.0,
+      "status": "Overdue",
+      "daysOverdue": 7
+    }
+  ]
+}</code></pre>
+</div>
+
+<div class="endpoint">
+  <h2><span class="method">GET</span> api/kuri</h2>
   <p><strong>Description:</strong> List all Kuri groups.</p>
   <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/kuri/get.json" class="mock-url" target="_blank">https://bookri.github.io/api/kuri/get.json</a></p>
   <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
@@ -138,7 +195,7 @@
 </div>
 
 <div class="endpoint">
-  <h2><span class="method">POST</span> /kuri/create</h2>
+  <h2><span class="method">POST</span> api/kuri/create</h2>
   <p><strong>Description:</strong> Create a new Kuri group.</p>
   <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/kuri/create/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/kuri/create/post.json</a></p>
   <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
@@ -156,7 +213,7 @@
 </div>
 
 <div class="endpoint">
-  <h2><span class="method">POST</span> /kuri/join/{id}</h2>
+  <h2><span class="method">POST</span> api/kuri/join/{id}</h2>
   <p><strong>Description:</strong> Join an existing Kuri group.</p>
   <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/kuri/join/1/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/kuri/join/1/post.json</a></p>
   <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
@@ -167,7 +224,7 @@
 </div>
 
 <div class="endpoint">
-  <h2><span class="method">GET</span> /transactions/{kuriId}</h2>
+  <h2><span class="method">GET</span> api/transactions/{kuriId}</h2>
   <p><strong>Description:</strong> Get transaction history for a Kuri group.</p>
   <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/transactions/1/get.json" class="mock-url" target="_blank">https://bookri.github.io/api/transactions/1/get.json</a></p>
   <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
@@ -189,7 +246,7 @@
 </div>
 
 <div class="endpoint">
-  <h2><span class="method">POST</span> /payment</h2>
+  <h2><span class="method">POST</span> api/payment</h2>
   <p><strong>Description:</strong> Record a payment for a Kuri group.</p>
   <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/payment/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/payment/post.json</a></p>
   <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
