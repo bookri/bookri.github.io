@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookri API Documentation</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        line-height: 1.6;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    header {
+        background-color: #2c3e50;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section {
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+        color: #2c3e50;
+    }
+
+    pre {
+       background: #f4f4f4;
+       border: 1px solid #ddd;
+       padding: 10px;
+       overflow-x: auto;
+    }
+
+    .endpoint {
+        margin-bottom: 20px;
+    }
+
+    .method {
+        font-weight: bold;
+        color: #2980b9;
+    }
+
+    .auth-required {
+        color: #e74c3c;
+    }
+
+    .no-auth {
+        color: #27ae60;
+    }
+
+    .mock-url {
+        color: #8e44ad;
+    }
+
+    code {
+        font-family: Consolas, Monaco, "Courier New", monospace;
+        padding: 2px 4px;
+        border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+<h1>Bookri API Documentation</h1>
+<p>Welcome to the API documentation for the Bookri backend application. Below are the details for each endpoint.</p>
+
+<div class="endpoint">
+  <h2><span class="method">POST</span> /auth/register</h2>
+  <p><strong>Description:</strong> Register a new user.</p>
+  <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/auth/register/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/auth/register/post.json</a></p>
+  <p><strong>Authentication:</strong> <span class="no-auth">No</span></p>
+  <pre><code>{
+    "email": "user@example.com",
+    "password": "securepassword",
+    "name": "John Doe"
+}</code></pre>
+  <p><strong>Response:</strong></p>
+  <pre><code>{
+    "message": "User registered successfully",
+    "userId": "12345"
+}</code></pre>
+</div>
+
+<div class="endpoint">
+  <h2><span class="method">POST</span> /auth/login</h2>
+  <p><strong>Description:</strong> Login and get a JWT token.</p>
+  <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/auth/login/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/auth/login/post.json</a></p>
+  <p><strong>Authentication:</strong> <span class="no-auth">No</span></p>
+  <pre><code>{
+    "email": "user@example.com",
+    "password": "securepassword"
+}</code></pre>
+  <p><strong>Response:</strong></p>
+  <pre><code>{
+    "token": "jwt-token-example",
+    "expiresIn": 3600
+}</code></pre>
+</div>
+
+<div class="endpoint">
+  <h2><span class="method">GET</span> /kuri</h2>
+  <p><strong>Description:</strong> List all Kuri groups.</p>
+  <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/kuri/get.json" class="mock-url" target="_blank">https://bookri.github.io/api/kuri/get.json</a></p>
+  <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
+  <p><strong>Response:</strong></p>
+  <pre><code>[
+    {
+        "id": "kuri123",
+        "name": "Monthly Savings Group",
+        "members": 10,
+        "amount": 1000,
+        "rotationFrequency": "Monthly"
+    },
+    {
+        "id": "kuri456",
+        "name": "Weekly Savings",
+        "members": 5,
+        "amount": 500,
+        "rotationFrequency": "Weekly"
+    }
+]</code></pre>
+</div>
+
+<div class="endpoint">
+  <h2><span class="method">POST</span> /kuri/create</h2>
+  <p><strong>Description:</strong> Create a new Kuri group.</p>
+  <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/kuri/create/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/kuri/create/post.json</a></p>
+  <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
+  <pre><code>{
+    "name": "Holiday Savings",
+    "amount": 2000,
+    "rotationFrequency": "Monthly",
+    "members": 8
+}</code></pre>
+  <p><strong>Response:</strong></p>
+  <pre><code>{
+    "message": "Kuri group created successfully",
+    "kuriId": "kuri789"
+}</code></pre>
+</div>
+
+<div class="endpoint">
+  <h2><span class="method">POST</span> /kuri/join/{id}</h2>
+  <p><strong>Description:</strong> Join an existing Kuri group.</p>
+  <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/kuri/join/1/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/kuri/join/1/post.json</a></p>
+  <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
+  <p><strong>Response:</strong></p>
+  <pre><code>{
+    "message": "Successfully joined the Kuri group"
+}</code></pre>
+</div>
+
+<div class="endpoint">
+  <h2><span class="method">GET</span> /transactions/{kuriId}</h2>
+  <p><strong>Description:</strong> Get transaction history for a Kuri group.</p>
+  <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/transactions/1/get.json" class="mock-url" target="_blank">https://bookri.github.io/api/transactions/1/get.json</a></p>
+  <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
+  <p><strong>Response:</strong></p>
+  <pre><code>[
+    {
+        "transactionId": "txn123",
+        "date": "2024-12-01",
+        "amount": 1000,
+        "paidBy": "John Doe"
+    },
+    {
+        "transactionId": "txn124",
+        "date": "2024-12-02",
+        "amount": 1000,
+        "paidBy": "Jane Smith"
+    }
+]</code></pre>
+</div>
+
+<div class="endpoint">
+  <h2><span class="method">POST</span> /payment</h2>
+  <p><strong>Description:</strong> Record a payment for a Kuri group.</p>
+  <p><strong>Mock URL:</strong> <a href="https://bookri.github.io/api/payment/post.json" class="mock-url" target="_blank">https://bookri.github.io/api/payment/post.json</a></p>
+  <p><strong>Authentication:</strong> <span class="auth-required">Yes</span></p>
+  <pre><code>{
+    "kuriId": "kuri123",
+    "amount": 1000,
+    "paidBy": "John Doe"
+}</code></pre>
+  <p><strong>Response:</strong></p>
+  <pre><code>{
+    "message": "Payment recorded successfully"
+}</code></pre>
+</div>
+<!--<footer>
+  <p>&copy; 2024 Bookri. All rights reserved.</p>
+</footer>-->
+</body>
+
+</html>
